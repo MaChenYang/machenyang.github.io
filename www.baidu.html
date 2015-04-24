@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+# 第一章 Java 语言概述
+
+---
+##Java  语言的特点
+### 1简单性
+Java的简单性首先体现在精简的系统，力图用最小的系统实现足够多的功能。无须强大的硬件环境，在小型的机器上便可以良好地运行。 
+
+编程人员无需进行复杂深奥的钻研,只需理解一些基本概念就能编写出合适的应用程序.
+Java语言虽然基于C++，但它除去了C++中许多难得一用而又复杂不易理解的内容。其中包括有运算符重载，多重继承等，使人不必纠缠于这些原本就有些模糊的概念。
+Java所保留的只是一个简单的，面向对象的多线程语言，其特性包括一个单继承的类系，强类型，支持多线程执行，自动垃圾收集，并且只采用引用（非指针）。
+Java实现了自动垃圾收集，程序设计者不必费心管理内存，一切工作由系统完成。这不但使程序设计更加简便，同时也大大减少了出错的可能。
+
+###2面向对象技术
+所有的Java应用程序和applet均是对象，封装性实现了模块化和信息隐藏，继承性实现了代码的复用。
+用户可以建立自己的类库
+###3分布性
+通过Java 提供的类库可以方理便地处TCP/IP协议，用户的应用程序可以通过URL  地址访问网络上的其他对象，就象访问本地文件一样简单.
+###4鲁棒性
+Java在编译及运行程序时，都要进行严格的检查，以消除错误发生的可能。
+Java在编译和连接时都进行大量的类型检查，以防止不匹配问题的发生。
+Java程序中不能采用地址计算的方法通过指针访问内存单元，这样就大大减少了错误发生的可能性。
+Java的数组并非用指针实现，这样就可以在检查中避免数组越界的发生。
+###5安全性
+Java 在运行应用程序时，严格检查其访问数据的权限。
+Java不允许网络上的应用程序修改本地的数据。
+下载到用户计算机中的字节代码在其被执行前要经过一个核实，核实后才能由java解释器来执行。
+解释器通过阻止对内存的直接访问来提高Java的安全性。
+Java具有很强的鲁棒性，也使他具有更好的安全性。不能使用指针，应用程序便不能计算来非法访问对象的私有成员。
+
+###6体系结构中立
+Java是一种网络语言，而网络上有各种不同类型的机器和操作系统。
+为使Java程序能在网络上任何地方运行，Java解释器生成与体系结构无关的字节码结构的文件格式，只须提供相应的Java运行系统 （JVM），便能在任何种类的处理器上运行。
+###7 可移植性
+
+###8解释执行
+###9高性能
+###10多线程
+多线程使应用程序可以同时进行不同的操作，处理不同的事件。
+在多线程机制中，不同的线程处理不同的任务，它们之间互不干涉，这样可以容易地实现网络上的实时交互操作
+###11动态性
+在类库中可以自由地加入新的方法或实例，而不会影响使用这一类库的应用程序的执行。
+
+-----
+##Java Applet 的特点
+它是一类特殊的Java程序，嵌入在 HTML语言中，随主页发布到Internet上。利用他，用户可以非常简便地实现Internet上的程序编写，实现多媒体的用户界面或进行复杂的计算。Java 程序的简单性使其与其他语言相比大大缩短了下载时间，而 Java Applet 的结构更加简单，代码更短。Java 的可移植性保证了Java Applet 可以在网络的任意地方运行，只要具备支持Java 的浏览器即可。Java   安全检查机制保证用户不会受到病毒的入侵。 Java Applet可以使Internet 上的信息真正具有动态性和交互性。所有的Java Applet 都是Applet 类的子类。Applet 类为用户做好了程序的框架，用户只须添入相应的函数即可，无须考虑诸如窗口创建，事件处理之类的问题，大大简化了编程复杂性。
+
+---
+##Java 程序举例
+Java Application 
+程序实现了一个功能，即输出一行信息：Hello World!
+```java
+ class HelloWorldApp{         //an application
+     public static void main(String args[]){
+       System.out.println("Hello World!");
+    }
+ }
+
+```
+###类定义
+所有的应用程序都是类。用保留字class来声明新类，public 指明这是一个公共类，Java 程序中可以定义多个类，但最多只能有一个公共类。
+###Main()方法
+所有应用程序都必须有且只有一个main()方法，而且必须用public static void 指定，public指明所有的类都可以使用这一方法，void指明本方法不返回任何值，static指明本方法是一个类方法，可以通过类名直接调用。Java解释器在没有生成任何实例时，以main()方法作为入口来执行程序。Main()方法定义中，括号中的String args[] 是传递给main()方法的参数 ，名为args,它是类String的一个实例，参数可以是一个或多个，每个参数用“类名 参数名”来指定，多个参数间用逗号分隔。
+###注释
+一行中"//"后的内容为注释，"/*"和"*/"中的内容也是注释。
+
+---
+## Java 小应用程序（Applet）
+```java
+import java.awt.Graphics;
+import java.applet.Applet;
+public class HelloWorldAppl extends Applet{
+public String s;
+   public void init() {
+      s=new String("Hello World");
+   }  
+    public void paint(Graphics g){
+      g.drawString(s,25,25);
+   }
+}
+```
+###类定义
+与 Java应用程序相同，所有的Java Applet 也都是类，而且必须是Applet 类的子类，用保留字extends 说明。
+
+###方法定义
+在Java Applet 中没有main()方法，这是Java Applet与Java应用程序之间的主要区别之一。
+
+###类库支持
+这个程序中用到了类库中的一些方法，因此必须在程序中进行声明
+###运行Java Applet
+首先要进行编译，同样也要放在与公共类同名的文件中，即为HelloWorldApp.java,然后进行编译：javac HelloWorldApp.java 得到字节码文HelloWorldApp.class.与应用程序不同的是，Java Applet中没有 main()方法作为程序的入口，不能用上面的方法运行。必须编写HTML文件，Applet 嵌入其中，然后用appletviewer来运行，或在支持Java的浏览器上运行。HTML文件 Example.html如下：
+```html
+<applet code=“HelloWorldApp.class“ width=300 height=300>
+</applet>
+```
+##Java 程序结构
+###1命名
+如Java文件包含一个public类，他必须按该类名命名
+###2类个数
+一个源文件中最多只能有一个public类，其他类的个数不限。
+###3结构
+ package语句： //0或1个，必须放在文件开始
+     import语句： //0或多个，必须放在所有类定义之前
+     public classDefinition:   //0或1个
+       //文件名必须与该类的类名完全相同
+     classDefinition:   //0或多个
+     interfaceDefinition:   //0或多个
+##环境变量
+###1 path
+设置javac、java等命令所在的路径。(bin路径)
+
+###2 classpath
+设置类库路径和当前路径。
+	(jdk安装路径\jre\lib\rt.jar;.;)
+
+###3 JAVA_HOME
+设置JDK的安装路径。
+
+
+-------
+
+
+#第二章 Java语言基础
+
+##1标识符和保留字
+###标识符(identifier) 
+概念
+
+> 用来标识类名、变量名、方法名、类型名、数组名、文件名的有效字符序列称为标识符。
+
+命名规则
+> 以字母、下划线、美元符号和数字组成，并且第一个字符不能是数字。 区分大小写 没有最大长度限制 使用unicode字符集
+
+###保留字(reserved word) 
+Java语言中已经被赋予特定的意义的一些标识符
+不可以把这类标识符作为名字来用
+Java语言中的保留字有：
+    abstract     
+    break   byte    boolean  
+    catch   case    class	char	   continue 等
+
+--------
+##2数据类型概述
+###常量和变量
+常量
+
+   
+
+>  程序中值不能改变的量
+>     例如：
+>     整型常量：123                              (int)
+>     实型常量：1.23                      (double)
+>     字符常量：‘a’                             (char)
+>     布尔常量：true、false        (boolean)
+>     字符串常量：“learn java”      (String)
+
+常量的声明格式
+
+```java
+final typeSpecifier varName=value[varName[=value]…];
+```
+typeSpecifier  为java中任意合法的简单数据类型
+         varName           为常量名，可以是任意的合法标识符
+         value                 为typeSpecifier类型中的合法值
+举例
+```java
+final int num=500;
+final double a=20.4, pi=3.1415926;
+```
+变量
+Java中的基本存储单元，其值可以改变
+变量的声明格式：
+```java
+typeSpecifier varName[=value][,varName[=value]…];
+```
+
+> 例如: int num;
+>       int num=40;
+>       int num=40, sum=0;
+
+##3简单数据类型
+###布尔型数据
+常量：true, false
+变量：用关键字boolean 定义,如 boolean b;
+
+###字符型数据
+常量：用单引号括起来的一个字符，如 ‘a’
+变量：用关键字char 定义，如 char c=‘a’
+
+###整型数据
+常量（3种形式）
+十进制整数    如 123   0  -123
+八进制整数    以0开头，如  0123
+十六进制整数  以0x或0X开头，如  0x123  
+变量（4种类型）
+byte               所占位数   8                  数的范围  -2 7 ~ 2 7 -1
+short                            16                               -2 15 ~ 2 15 -1    
+int                                 32                               -2 31 ~ 2 31 -1 
+long                              64                                -2 63 ~ 2 63 -1 
+
+###浮点型数据
+常量（2种形式）
+十进制   如：0.123   123.0
+科学计数法  如：123e3
+变量（2种类型）
+float       所占位数   32      数的范围 3.4e-38 ~3.4e+38
+double    所占位数   64     数的范围 1.7e-308 ~1.7e+308
+
+> 整型常量均被默认为是int型数据，如果要将该常量变为long类型，可在其后边加上‘L’，如123L
+> 浮点型常量均被默认为是double型数据，如果要将该常量变为float类型，可在其后边加上‘F’，如123.0F
+
+##4各类型数据间的优先关系和相互转换
+1自动类型转换
+转换由低到高：
+
+> 低    --   高 
+> 
+> byte,short,char   int   long   float   double
+
+Java语言中，由于float类型数据（32位）在计算机中是由反码表示的，所以可以容纳long类型（64位）所表示的数的范围
+
+2强制类型转换
+高级数据转换成低级数据，需要强制类型转换
+转换格式： （低级类型）高级数据
+例如：int i;      byte b=(byte)i;
+
+3自动类型提升
+byte a,b,c;   c=a+b;
+当两个byte类型的数值进行相加，其结果可能超出byte类型所能表示的范围，此时，变量c的类型会被自动提升为short类型。
+自动类型提升只适用于byte类型提升为short类型。
+##5运算符
+对各种类型的数据进行加工的过程称为运算
+表示各种不同运算的符号称为运算符
+参与运算的数据称为操作数
+运算符的类型,按操作数的数目来分,可以有
+一元运算符(如++,--)
+二元运算符(如+,>)
+三元运算符(如?:)
+###算数运算符
+算术运算符作用于整型或浮点型数据,完成算术运算
+在JAVA中,对算术运算符进行扩展,是他能够进行字符串的连接,如 “ABD”+”DEF”,将得到“ABDDEF”.
+###关系运算符
+关系运算符用来比较两个值,返回布尔类型的值TRUE或FALSE.
+关系运算符都是二元运算符.
+JAVA中任何类型的数据都可以通过==或!=来比较是否相等.
+ 关系运算符常与布尔逻辑运算符一起使用,作为流控制语句的判断条件
+ 
+###布尔逻辑运算符
+ && :  逻辑与
+ ||  :  逻辑或
+ !  :  逻辑非
+ 
+运算符|用法 |描述
+:---------------|:---------------|:---------------
+ ~|~op|按位取反
+ &|op1&op2|按位与
+  竖线| |op1|op2|按位或
+ ^|op1^op2|按位异或
+ ( >>)|op1>>op2|op1右移op2位
+ <<|op1<<op2|op1左移op2位
+ (>>>)|op1>>>op2|op1无符号右移op2位
+ 
+###赋值运算符
+赋值运算符“=”用来把一个数据赋给一个变量
+如果变量的数据类型的级别高,则右侧的数据被转化为与左侧相同的数据类型,然后赋给左侧变量.否则,需要使用强制类型转换运算符.
+在赋值运算符“=”前加上其他运算符,即构成扩展赋值运算符
+###条件运算符
+条件运算符？：为三元运算符
+     它的一般形式为： 
+         expression ? statement1 : statement2 
+    表达式中expression的值应为一个布尔值
+    如果该值为true，则执行语句statement1,否则执statement2, 
+    而语句statement1和statement2要返回相同的类型， 且该类型不能是void.
+6##表达式
+表达式是由操作数和运算符按一定的语法形式组成的符号序列。
+例如：
+		Num1+num2
+		A*(b+c)-d
+		X<=(y-z)
+		X && Y || Z
+每个表达式经过运算之后都会产生一个确定的值,称为表达式的值.该值是属于某种类型的,该类型称为表达式的类型.
+Num1+num2
+A*(b+c)-d        
+X<=(y-z)            是布尔类型
+X && Y || Z        是布尔类型
+
+ - 表达式的类型由运算以及参与运算的操作数的类型决定,可以是简单类型或复合类型.
+ - 表达式的值可作为其他运算的操作数.
+ - 运算是要按运算符的优先顺序从高到底进行,同级运算符则按从左到右的方向进行
+ 
+
+优先次序|运算符
+:---------------|:---------------
+1|.    [ ]    ( )
+2|++  - -  !  ~  instanceof 
+3|New
+4|*   /  %
+5|+  -
+6|(>>  >>>  <<)
+7|（>  <  <=  >=）
+8|==   !=
+9|&
+10|^
+11|竖线
+12|&&
+13|两个竖线
+14|?:
+15|=     +=     -=     *=     /=     %=     ^=
+16|&=   |=    <<=   >>=   >>>=
+
+##7控制语句
+控制语句分类
+1分支语句: if-else   , switch
+2 循环语句: while  , do-while , for
+3 与程序转移有关的其他语句:
+		   break, continue , return 
+4 异常处理语句:try-catch-finally ,throw
+5 注释语句 //    /* …*/   /** … */
+###条件语句 if – else
+```java    
+    if(boolean-expression)
+     {statement1;}
+    else 
+     {statement2}
+```
+另一种形式
+```java
+ if(expression1){
+              statement1}
+else if(exprssion2){
+             statement2}
+          . . . . . .
+}else if (expressionM){
+             statementM}
+else{statementN}
+```
+###控制语句——switch语句
+```java
+switch (expression){
+      case    value1:    statement1;
+                                 break;
+      case    value2:     statement2;
+                                  break; 
+       . . . . . .
+      case    valueN:     statementN;
+                                  break;
+   [default   :      defaultStatement;]
+}
+```
+###控制语句——while循环
+while循环
+```java
+    [initialization]
+     while (termination){
+                    Body;
+            [iteration;]
+    }
+```
+
+###控制语句——do—while循环
+```java
+do—while循环
+     [initialization]
+    do {
+       body;
+ 		    [iteration;]
+   }while(termination)
+```
+###for循环
+```java
+for(initialization;termination;iteration)
+    {
+       body;
+}
+```
+例如:
+```java
+for(I=0;I<100;I++){…}
+```
+###break语句
+终止switch语句的执行
+
+```java
+switch (expression){
+      case    value1:    statement1;
+                                  break;
+. . . . . .
+   [default   :      defaultStatement;]
+}
+```
+跳出所指定的块
+
+```java
+a:{                         //标记代码块a
+b:      {                   //标记代码块b
+c:               {          //标记代码块c
+                            break;
+                   }
+          }
+         //execute from here
+   }
+```
+###continue语句
+结束本次循环
+
+```java
+ y=0;//(i从4开始继续执行)
+ for(int i=0;i<10;i++)
+{
+if(i==3) continue;
+ y+=i;
+ }
+```
+用continue跳转到标号指明的外层循环
+```java
+Outer: for(int i=0;i<10;i++)
+ {
+  for(int j=0;j<10;j++)
+   {
+     if(i==3) continue Outer;
+   }
+} //跳转后转到Outer,i从4开始
+```
+###return语句
+从当前方法中退出,返回一个值给调用该方法的语句
+格式1:  return expression;
+格式2: return ;  // 返回类型为空
+```java
+Class  A
+{
+ …
+      public int getNum()
+      {
+          return 100; 
+       } 
+}
+```
+-----
+#第6章   类、对象和接口
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "www.baidu.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
